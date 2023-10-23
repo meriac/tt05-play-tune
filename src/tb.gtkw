@@ -1,0 +1,27 @@
+[*]
+[*] GTKWave Analyzer v3.3.115 (w)1999-2023 BSI
+[*] Mon Oct 23 02:01:40 2023
+[*]
+[dumpfile] "tb.vcd"
+[dumpfile_mtime] "Mon Oct 23 01:57:18 2023"
+[dumpfile_size] 9065301
+[savefile] "tb.gtkw"
+[timestart] 0
+[size] 3840 2113
+[pos] 3865 0
+*-37.899998 64900000000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] tb.
+[treeopen] tb.tt_um_meriac_play_tune.
+[sst_width] 343
+[signals_width] 264
+[sst_expanded] 1
+[sst_vpaned_height] 654
+@28
+tb.clk
+tb.tt_um_meriac_play_tune.rst_n
+@8024
+tb.piezo_speaker[1:0]
+@29
+tb.tt_um_meriac_play_tune.speaker
+[pattern_trace] 1
+[pattern_trace] 0
