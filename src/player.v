@@ -49,7 +49,7 @@ module tt_um_meriac_play_tune #( parameter MAX_COUNT = 100 ) (
     wire [11:0] db_entry;
 
     reg [6:0] note_address;
-    reg [11:0] ticks;
+    reg [15:0] ticks;
     reg [7:0] freq, counter;
     reg speaker;
 
@@ -64,49 +64,42 @@ module tt_um_meriac_play_tune #( parameter MAX_COUNT = 100 ) (
 
     always @(posedge clk) begin
 
-        // if reset, set note_address to 0
         if (!rst_n) begin
-            note_address <= 0;
+
             ticks <= 0;
             freq <= 0;
             counter <= 0;
             speaker <= 0;
+            note_address <= 0;
+
         end else begin
 
-            if (!ticks) begin
+            if (ticks>0) begin
+                ticks <= ticks - 1'b1;
+
+                // tone frequency divider
+                if (counter>0) begin
+                    counter <= counter - 1'b1;
+                    speaker <= counter >= (freq/2);
+                end else begin
+                    counter <= freq;
+                    speaker <= 1'b0;
+                end
+
+            end else begin
+                // update per-note delay
+                ticks[15:12] <= db_entry[3:0];
+                ticks[11:0] <= 0;
+
+                // reset tone generator
+                counter <= db_entry[11:4];
+                freq <= db_entry[11:4];
+
                 if (note_address<MAX_COUNT) begin
                     note_address <= note_address + 1'b1;
                 end else begin
                     note_address <= 0;
                 end
-            end
-
-            // tone frequency divider
-            if (counter>0) begin
-                counter <= counter - 1'b1;
-                speaker <= counter >= (freq/2);
-            end else begin
-                counter <= freq;
-                speaker <= 1'b0;
-            end
-
-        end
-    end
-
-    always @(negedge clk) begin
-
-        if (rst_n) begin
-
-            if (ticks>0) begin
-                ticks <= ticks - 1'b1;
-            end else begin
-                // update per-note delay
-                ticks[11:8] <= db_entry[3:0];
-                ticks[7:0] <= 0;
-
-                // reset tone generator
-                counter <= db_entry[11:4];
-                freq <= db_entry[11:4];
             end
 
         end

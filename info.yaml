@@ -30,7 +30,7 @@ documentation:
 
 # Instructions on how someone could test your project, include things like what buttons do what and how to set the clock if needed
   how_to_test:  |
-      Provide 6.25kHz clock on io_in[0], briefly hit reset io_in[1] (L->H->L) and io_out[1:0] will play a differential sound wave over piezo speaker (Super Mario)
+      Provide 100kHz clock on io_in[0], briefly hit reset io_in[1] (L->H->L) and io_out[1:0] will play a differential sound wave over piezo speaker (Super Mario)
 
 # A description of what the inputs do (e.g. red button, SPI CLK, SPI MOSI, etc).
   inputs:               
@@ -68,5 +68,5 @@ documentation:
   external_hw:  "Piezo speaker connected across io_out[1:0]"      # Describe any external hardware needed
   discord:      "foolsdelight"                                    # Your discord handle, used for communication and automatically assigning tapeout role after a submission
   doc_link:     "https://github.com/meriac/tt05-play-tune#readme" # URL to longer form documentation, eg the README.md in your repository
-  clock_hz:     6250                                              # Clock frequency in Hz (if required)
-  picture:      "img/chip-design.png"                             # relative path to a picture in your repository (must be 512kb or less)
+  clock_hz:     100000                                            # Clock frequency in Hz (if required)
+  picture:      "img/chip-design.jpg"                             # relative path to a picture in your repository (must be 512kb or less)

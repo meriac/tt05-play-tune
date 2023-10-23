@@ -10,10 +10,10 @@ over a Piezo Speaker connected across io_out[1:0]. The speaker is driven
 in differential PWM mode to increase its output power.
 
 ### Listen To The Generated Sound ###
-Listen to the [Verilog Simulation PWM output for 62505Hz clock frequency](https://github.com/meriac/tt05-play-tune/releases/download/v0.1/tune-modulation-verilog-simulated.wav) here.
+Listen to the [Verilog Simulation PWM output for 100kHz clock frequency](https://github.com/meriac/tt05-play-tune/releases/download/v0.1/tune-modulation-verilog-simulated.wav) here.
 
 ### Chip Design of the Super Mario Tune player ###
-![Chip Design of the Super Mario Tune player](img/chip-design.png)
+![Chip Design of the Super Mario Tune player](img/chip-design.jpg)
 (see also the [interactive version of this design](https://meriac.github.io/tt05-play-tune/))
 
 ## Verilog Design Files ##
@@ -29,7 +29,7 @@ Using [GTKWave](https://gtkwave.sourceforge.net/) for visualization of Simulatio
 ![Zooming into the Waveform](img/waveform-detail.png)
 
 ## How To Test ##
-Provide 6250Hz clock on io_in[0], briefly hit reset io_in[1] (Low, High, Low)
+Provide 100kHz clock on io_in[0], briefly hit reset io_in[1] (Low, High, Low)
 and io_out[1:0] will play a differential sound wave over piezo speaker
 (Super Mario Tune).
 
