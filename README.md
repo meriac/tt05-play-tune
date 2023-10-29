@@ -6,7 +6,7 @@
 [This Verilog chip design](https://meriac.github.io/tt05-play-tune/) is
 made for the [TinyTapout tt05 shuttle](https://tinytapeout.com/).
 It [will play](src/player.v#L38) the [Super Mario Tune](src/tune.v#L42-L45)
-over a Piezo Speaker connected across io_out[1:0]. The speaker is driven
+over a Piezo Speaker connected across uio_out[1:0]. The speaker is driven
 in differential PWM mode to increase its output power.
 
 ### Listen To The Generated Sound ###
@@ -29,9 +29,9 @@ Using [GTKWave](https://gtkwave.sourceforge.net/) for visualization of Simulatio
 ![Zooming into the Waveform](img/waveform-detail.png)
 
 ## How To Test ##
-Provide 100kHz clock on io_in[0], briefly hit reset io_in[1] (Low, High, Low)
-and io_out[1:0] will play a differential sound wave over piezo speaker
+Provide 100kHz clock on clk, briefly lower reset (rst_n)
+and uio_out[1:0] will play a differential sound wave over piezo speaker
 (Super Mario Tune).
 
 ## External Hardware Required ##
-Piezo speaker connected across io_out[1:0]
+Piezo speaker connected across uio_out[1:0]
